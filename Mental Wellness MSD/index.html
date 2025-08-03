@@ -3,461 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindfulMe - Mental Wellness Platform</title>
+    <title>MindfulMe - Login</title>
     <style>
-        /* CSS Variables for Design System */
-        :root {
-            /* Mental Health Theme - Calming & Healing Colors */
-            --background: 210 40% 98%;
-            --foreground: 220 15% 25%;
-            --card: 0 0% 100%;
-            --card-foreground: 220 15% 25%;
-            --primary: 180 25% 45%;
-            --primary-foreground: 0 0% 100%;
-            --secondary: 260 15% 90%;
-            --secondary-foreground: 220 15% 25%;
-            --muted: 210 20% 95%;
-            --muted-foreground: 220 15% 55%;
-            --accent: 40 35% 88%;
-            --accent-foreground: 220 15% 25%;
-            --border: 210 25% 88%;
-            --input: 210 25% 88%;
-            --wellness-calm: 200 35% 75%;
-            --wellness-energy: 45 85% 75%;
-            --wellness-peace: 160 25% 80%;
-            --wellness-focus: 240 20% 80%;
-            --wellness-gratitude: 30 45% 85%;
-            --radius: 1rem;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--wellness-calm))/10%);
-            color: hsl(var(--foreground));
             min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Navigation */
-        .nav {
-            background: hsl(var(--card))/80%;
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid hsl(var(--border));
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        .nav-content {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: hsl(var(--primary));
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            color: hsl(var(--muted-foreground));
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover {
-            color: hsl(var(--primary));
-        }
-
-        .user-menu {
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius);
-            cursor: pointer;
-        }
-
-        /* Main Content */
-        .main {
-            padding: 2rem 0;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--wellness-calm)), hsl(var(--wellness-peace)));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: hsl(var(--muted-foreground));
-            max-width: 40rem;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
+            background: linear-gradient(120deg, #fafdff 0%, #eaf6fa 100%);
+            font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
         }
-
+        .login-container {
+            background: rgba(255,255,255,0.97);
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 370px;
+            width: 100%;
+            text-align: center;
+        }
+        .login-logo {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: hsl(180, 25%, 45%);
+            font-weight: bold;
+            letter-spacing: 0.04em;
+        }
+        .login-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: hsl(220, 15%, 25%);
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            padding: 0.9rem 1rem;
+            border-radius: 0.8rem;
+            border: 1.5px solid #d2e6e6;
+            font-size: 1.08rem;
+            background: #f5f7fa;
+            transition: border 0.2s, background 0.2s;
+            color: #234;
+        }
+        .login-form input:focus {
+            border: 1.5px solid hsl(180, 25%, 45%);
+            outline: none;
+            background: #fff;
+        }
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius);
+            padding: 0.95rem 2.2rem;
+            border-radius: 2rem;
             border: none;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 700;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
+            font-size: 1.12rem;
+            background: linear-gradient(90deg, #5e9e9c 0%, #b0cddb 100%);
+            color: #fff !important;
+            box-shadow: 0 2px 8px rgba(94,158,156,0.08);
+            margin-top: 0.3rem;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+            outline: none;
+            letter-spacing: 0.01em;
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--wellness-calm)));
-            color: hsl(var(--primary-foreground));
+        .btn:hover, .btn:focus {
+            background: linear-gradient(90deg, #b0cddb 0%, #5e9e9c 100%);
+            box-shadow: 0 4px 16px rgba(94,158,156,0.13);
+            transform: translateY(-2px) scale(1.04);
         }
-
-        .btn-outline {
-            background: transparent;
-            color: hsl(var(--foreground));
-            border: 1px solid hsl(var(--border));
+        .login-footer {
+            margin-top: 1.5rem;
+            color: #789;
+            font-size: 0.98rem;
         }
-
-        .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px hsl(var(--primary))/20%;
+        .error-message {
+            color: #c0392b;
+            background: #ffeaea;
+            border-radius: 0.7rem;
+            padding: 0.7rem 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            display: none;
         }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .stat-card {
-            background: hsl(var(--card));
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 2px 8px hsl(var(--foreground))/5%;
-        }
-
-        .stat-card.calm {
-            background: linear-gradient(135deg, hsl(var(--wellness-calm))/20%, hsl(var(--wellness-calm))/10%);
-        }
-
-        .stat-card.energy {
-            background: linear-gradient(135deg, hsl(var(--wellness-energy))/20%, hsl(var(--wellness-energy))/10%);
-        }
-
-        .stat-card.gratitude {
-            background: linear-gradient(135deg, hsl(var(--wellness-gratitude))/20%, hsl(var(--wellness-gratitude))/10%);
-        }
-
-        .stat-icon {
-            width: 2rem;
-            height: 2rem;
-            margin: 0 auto 0.5rem;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            color: hsl(var(--muted-foreground));
-            font-size: 0.875rem;
-        }
-
-        /* Features Grid */
-        .section-title {
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--card))/50%);
-            backdrop-filter: blur(4px);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            transition: all 0.3s;
+        .signup-link {
+            color: hsl(180, 25%, 45%);
+            text-decoration: underline;
             cursor: pointer;
-            border: 1px solid hsl(var(--border))/50%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 8px 25px hsl(var(--foreground))/10%;
-        }
-
-        .feature-icon {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1);
-        }
-
-        .feature-icon.calm {
-            background: hsl(var(--wellness-calm))/20%;
-            color: hsl(var(--wellness-calm));
-        }
-
-        .feature-icon.gratitude {
-            background: hsl(var(--wellness-gratitude))/20%;
-            color: hsl(var(--wellness-gratitude));
-        }
-
-        .feature-icon.peace {
-            background: hsl(var(--wellness-peace))/20%;
-            color: hsl(var(--wellness-peace));
-        }
-
-        .feature-icon.focus {
-            background: hsl(var(--wellness-focus))/20%;
-            color: hsl(var(--wellness-focus));
-        }
-
-        .feature-icon.energy {
-            background: hsl(var(--wellness-energy))/20%;
-            color: hsl(var(--wellness-energy));
-        }
-
-        .feature-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-description {
-            color: hsl(var(--muted-foreground));
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-action {
-            color: hsl(var(--primary));
-            font-weight: 500;
-            text-decoration: none;
-            font-size: 0.875rem;
-        }
-
-        .feature-action:hover {
-            color: hsl(var(--primary))/80%;
-        }
-
-        /* Footer */
-        .footer {
-            background: hsl(var(--card))/50%;
-            backdrop-filter: blur(4px);
-            border-top: 1px solid hsl(var(--border));
-            padding: 2rem 0;
-            margin-top: 4rem;
-            text-align: center;
-            color: hsl(var(--muted-foreground));
-        }
-
-        /* Icons (using Unicode symbols) */
-        .icon {
-            font-size: 1.5rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">🌿 MindfulMe</div>
-                <ul class="nav-links">
-                    <li><a href="#" class="nav-link">Dashboard</a></li>
-                    <li><a href="#" class="nav-link">Journal</a></li>
-                    <li><a href="#" class="nav-link">Community</a></li>
-                    <li><a href="#" class="nav-link">Progress</a></li>
-                </ul>
-                <button class="user-menu">Profile</button>
+    <div class="login-container">
+        <div class="login-logo">🌿 MindfulMe</div>
+        <div class="login-title">Sign in to your account</div>
+        <div id="error" class="error-message"></div>
+        <form class="login-form" id="loginForm" autocomplete="off">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="login-footer">
+            Don't have an account?
+            <span class="signup-link" onclick="showSignup()">Sign up</span>
+        </div>
+    </div>
+
+    <!-- Signup Modal (hidden by default) -->
+    <div id="signupModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.18);z-index:100;align-items:center;justify-content:center;">
+        <div class="login-container" style="max-width:400px;">
+            <div class="login-title">Create your account</div>
+            <div id="signupError" class="error-message"></div>
+            <form class="login-form" id="signupForm" autocomplete="off">
+                <input type="text" id="newUsername" placeholder="Username" required>
+                <input type="password" id="newPassword" placeholder="Password" required>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <div class="login-footer">
+                Already have an account?
+                <span class="signup-link" onclick="hideSignup()">Login</span>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1>Your Mental Wellness Journey Starts Here</h1>
-                <p>A comprehensive platform designed to support your mental health, build positive habits, and connect with a caring community.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Start Your Journey</a>
-                    <a href="#" class="btn btn-outline">Learn More</a>
-                </div>
-            </section>
+    <script>
+        // Simple demo authentication (replace with real backend in production)
+        const users = [{ username: "demo", password: "demo123" }];
+        function showSignup() {
+            document.getElementById('signupModal').style.display = 'flex';
+        }
+        function hideSignup() {
+            document.getElementById('signupModal').style.display = 'none';
+        }
 
-            <!-- Quick Stats -->
-            <section class="stats-grid">
-                <div class="stat-card calm">
-                    <div class="stat-icon">🧠</div>
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Days tracked</div>
-                </div>
-                <div class="stat-card energy">
-                    <div class="stat-icon">📈</div>
-                    <div class="stat-number">85%</div>
-                    <div class="stat-label">Mood improvement</div>
-                </div>
-                <div class="stat-card gratitude">
-                    <div class="stat-icon">📅</div>
-                    <div class="stat-number">7</div>
-                    <div class="stat-label">Day streak</div>
-                </div>
-            </section>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorDiv = document.getElementById('error');
+            const user = users.find(u => u.username === username && u.password === password);
+            if (user) {
+                // Simulate login success
+                localStorage.setItem('mindfulme_logged_in', 'yes');
+                window.location.href = "home.html";
+            } else {
+                errorDiv.textContent = "Invalid username or password.";
+                errorDiv.style.display = "block";
+            }
+        };
 
-            <!-- Wellness Features -->
-            <section>
-                <h2 class="section-title">Your Wellness Toolkit</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon calm">
-                            <span class="icon">❤️</span>
-                        </div>
-                        <h3 class="feature-title">Daily Wellness Journal</h3>
-                        <p class="feature-description">Track your mental, emotional, and physical health with mood check-ins and guided prompts</p>
-                        <a href="#" class="feature-action">Start today →</a>
-                    </div>
+        document.getElementById('signupForm').onsubmit = function(e) {
+            e.preventDefault();
+            const username = document.getElementById('newUsername').value.trim();
+            const password = document.getElementById('newPassword').value.trim();
+            const errorDiv = document.getElementById('signupError');
+            if (users.find(u => u.username === username)) {
+                errorDiv.textContent = "Username already exists.";
+                errorDiv.style.display = "block";
+                return;
+            }
+            if (username.length < 3 || password.length < 5) {
+                errorDiv.textContent = "Username must be at least 3 characters and password at least 5.";
+                errorDiv.style.display = "block";
+                return;
+            }
+            users.push({ username, password });
+            hideSignup();
+            alert("Signup successful! Please login.");
+        };
 
-                    <div class="feature-card">
-                        <div class="feature-icon gratitude">
-                            <span class="icon">📖</span>
-                        </div>
-                        <h3 class="feature-title">Gratitude & Positivity Wall</h3>
-                        <p class="feature-description">Share and discover daily gratitude notes in a supportive community space</p>
-                        <a href="#" class="feature-action">Start today →</a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon peace">
-                            <span class="icon">📱</span>
-                        </div>
-                        <h3 class="feature-title">Digital Detox Companion</h3>
-                        <p class="feature-description">Track screen time, set goals, and practice mindful breaks from technology</p>
-                        <a href="#" class="feature-action">Start today →</a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon focus">
-                            <span class="icon">💬</span>
-                        </div>
-                        <h3 class="feature-title">Anonymous Support Forum</h3>
-                        <p class="feature-description">A safe space to vent feelings and receive kind responses from the community</p>
-                        <a href="#" class="feature-action">Start today →</a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon calm">
-                            <span class="icon">🌙</span>
-                        </div>
-                        <h3 class="feature-title">Sleep Improvement Dashboard</h3>
-                        <p class="feature-description">Log sleep patterns, get personalized tips, and improve your rest quality</p>
-                        <a href="#" class="feature-action">Start today →</a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon energy">
-                            <span class="icon">⏰</span>
-                        </div>
-                        <h3 class="feature-title">Focus & Productivity Coach</h3>
-                        <p class="feature-description">Pomodoro sessions, task tracking, and distraction logging for better focus</p>
-                        <a href="#" class="feature-action">Start today →</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 MindfulMe. Supporting your mental wellness journey with care and compassion.</p>
-        </div>
-    </footer>
+        // Block access to portal if not logged in
+        if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/" || window.location.pathname === "/index.html") {
+            if (localStorage.getItem('mindfulme_logged_in') !== 'yes') {
+                window.location.href = "index.html";
+            }
+        }
+        if (localStorage.getItem('mindfulme_logged_in') !== 'yes') {
+    window.location.href = "index.html";
+}
+    </script>
 </body>
 </html>

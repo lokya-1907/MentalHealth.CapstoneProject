@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindfulMe - Focus & Productivity Coach</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+  --background: 210 40% 98%;
+  --foreground: 220 15% 25%;
+  --primary: 180 25% 45%;
+  --primary-foreground: 0 0% 100%;
+  --muted: 210 20% 95%;
+  --muted-foreground: 220 15% 55%;
+  --border: 210 25% 88%;
+  --radius: 1.2rem;
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  --glass-bg: rgba(255,255,255,0.82);
+  --glass-blur: blur(18px);
+}
+
+body {
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    color: #234; /* or hsl(var(--foreground)); */
+    background: linear-gradient(120deg, hsl(var(--background)), hsl(var(--primary), 35%, 90%));
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1.5px solid hsl(var(--border));
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: hsl(var(--primary));
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: hsl(var(--muted-foreground));
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.08rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.7rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-link.active,
+.nav-link:hover,
+.nav-link:focus {
+    background: hsl(var(--primary)/12%);
+    color: hsl(var(--primary));
+}
+
+.user-menu {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary), 80%, 80%));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    padding: 0.6rem 1.3rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px hsl(var(--primary)/10%);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.user-menu:hover {
+    background: linear-gradient(90deg, hsl(var(--primary), 80%, 80%), hsl(var(--primary)));
+    box-shadow: 0 4px 16px hsl(var(--primary)/15%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.main {
+    padding: 2.5rem 0 1.5rem 0;
+    min-height: 70vh;
+}
+
+.feature-detail {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 60vh;
+}
+
+.feature-card {
+    background: var(--glass-bg);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+    padding: 2.7rem 2.1rem 2.1rem 2.1rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1.5px solid hsl(var(--border));
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    backdrop-filter: var(--glass-blur);
+    transition: box-shadow 0.2s, border 0.2s;
+}
+
+.feature-card:hover {
+    box-shadow: 0 16px 48px hsl(var(--primary)/18%);
+    border-color: hsl(var(--primary));
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.3rem;
+    color: hsl(var(--primary));
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 1.1rem 1rem;
+    border-radius: 0.8rem;
+    border: 1.5px solid hsl(var(--border));
+    font-size: 1.08rem;
+    background: #f5f7fa;
+    margin-bottom: 1.2rem;
+    transition: border 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px hsl(var(--primary)/7%);
+    color: #234;
+    font-family: 'Segoe UI','Inter',Arial,sans-serif;
+}
+
+input[type="text"]:focus {
+    border: 1.5px solid hsl(var(--primary));
+    outline: none;
+    background: #fff;
+}
+
+/* Modern rounded gradient button */
+.btn,
+button,
+input[type="submit"] {
+    padding: 0.95rem 2.2rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.12rem;
+    background: linear-gradient(90deg, #5e9e9c 0%, #b0cddb 100%);
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(94,158,156,0.08);
+    margin-top: 0.3rem;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    outline: none;
+    letter-spacing: 0.01em;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+.btn:focus,
+button:focus,
+input[type="submit"]:focus {
+    background: linear-gradient(90deg, #b0cddb 0%, #5e9e9c 100%);
+    box-shadow: 0 4px 16px rgba(94,158,156,0.13);
+    transform: translateY(-2px) scale(1.04);
+}
+
+#gratitude-list {
+    margin-top: 1.5rem;
+    padding-left: 1.2rem;
+    list-style: disc;
+    color: hsl(var(--foreground));
+    font-size: 1.05rem;
+}
+
+.footer {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary), 80%, 80%));
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    margin-top: 4rem;
+    font-size: 1.08rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 -2px 16px hsl(var(--primary)/10%);
+    border-top: 1px solid hsl(var(--border));
+}
+
+.footer p {
+    margin: 0;
+    opacity: 0.95;
+}
+
+@media (max-width: 700px) {
+    .feature-card {
+        padding: 1.2rem 0.7rem;
+    }
+    .main {
+        padding: 1.2rem 0 0.7rem 0;
+    }
+    .feature-title {
+        font-size: 1.15rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation (copy from index.html) -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">🌿 MindfulMe</div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="journal.html" class="nav-link">Journal</a></li>
+                    <li><a href="gratitude.html" class="nav-link">Community</a></li>
+                    <li><a href="#" class="nav-link">Progress</a></li>
+                </ul>
+                <button class="user-menu">Profile</button>
+            </div>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="container">
+            <section id="focus" class="feature-detail" style="margin-bottom:3rem;">
+                <div class="feature-card" style="max-width:600px;margin:0 auto;">
+                    <div class="feature-title" style="margin-bottom:1rem;">Focus & Productivity Coach</div>
+                    <input type="text" id="focus-task" placeholder="What will you focus on?" style="width:100%;padding:1rem;border-radius:0.7rem;border:1px solid hsl(var(--border));">
+                    <button class="btn btn-primary" style="margin-top:1rem;">Add Task</button>
+                    <ul id="focus-list" style="margin-top:1.5rem;padding-left:1.2rem;"></ul>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MindfulMe. Supporting your mental wellness journey with care and compassion.</p>
+        </div>
+    </footer>
+</body>
+</html>

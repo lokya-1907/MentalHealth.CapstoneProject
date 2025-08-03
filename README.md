@@ -94,9 +94,3 @@ Mental Wellness MSD/
 
 - UI inspired by modern wellness and productivity apps.
 - Built with HTML and CSS
-
----
-
----
-
-Enjoy your
